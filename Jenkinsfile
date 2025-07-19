@@ -22,7 +22,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                bat 'java HELLO ${params.arg}'
+                bat "java HELLO ${params.arg}"
             }
         }
     }
