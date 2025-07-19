@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    parameters {
+        string(name: 'arg', defaultValue: 'default value', description: 'Name to greet')
+    }
     stages {
         stage('Build') {
             steps {
@@ -20,7 +22,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing...'
-                bat 'java HELLO'
+                bat 'java HELLO ${params.arg}'
             }
         }
     }
