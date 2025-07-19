@@ -18,7 +18,11 @@ pipeline {
                 }
             }
         }
-
+        stage('Approval'){
+            steps {
+                input message: 'Do you approve the build?', ok: 'Yes, proceed'
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Testing...'
