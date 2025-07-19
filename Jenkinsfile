@@ -7,8 +7,7 @@ pipeline {
                 echo 'Building...'
                 bat 'javac HELLO.java'
             }
-        }
-        post{
+            post {
                 success {
                     echo 'Build completed successfully.'
                 }
@@ -16,16 +15,19 @@ pipeline {
                     echo 'Build failed.'
                 }
             }
+        }
+
         stage('Test') {
             steps {
                 echo 'Testing...'
                 bat 'java HELLO'
             }
         }
-        post{
-            always{
-                echo "build finished"
-            }
-        }
     }
+
+    post {
+        always {
+            echo "Build finished"
+        }
+    } 
 }
